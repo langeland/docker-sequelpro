@@ -1,8 +1,7 @@
-# Docker Sequel pro connector
-Opens 
+# Docker Sequel Pro connector
+Opens Sequel Pro from the command line, based on the mysql configuration in docker-compose.yaml
 
 ## Installation
-
 ```
 cd ~/bin/
 git clone git@github.com:langeland/docker-sequelpro.git docker-sequelpro-source
@@ -16,6 +15,11 @@ composer install
 cd ~/Docker/MyProject
 docker-sequelpro
 ```
+### Root login
+```
+cd ~/Docker/MyProject
+docker-sequelpro -r
+```
 
 ## Requirements
 For this to work there must be either a docker-compose.yaml or a docker-compose.yml file. And it must contain the following:
@@ -23,7 +27,7 @@ For this to work there must be either a docker-compose.yaml or a docker-compose.
 ```
 mysql:
   ports:
-    - "3309:3306"
+    - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: password
     MYSQL_USER: rbareg_user
